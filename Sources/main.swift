@@ -26,13 +26,7 @@ let server = HTTPServer()
 
 // Register your own routes and handlers
 var routes = Routes()
-//routes.add(method: .get, uri: "/", handler: {
-//		request, response in
-//		response.setHeader(.contentType, value: "text/html")
-//		response.appendBody(string: "<html><title>Hello, world!</title><body>Hello, world!</body></html>")
-//		response.completed()
-//	}
-//)
+
 routes.add(method: .get, uri: "/peng") { (request, response) in
     do {
         try response.setBody(json: ["peng" : "beauty" , "xu" : "handsome"])
@@ -91,7 +85,7 @@ routes.add(routes: api2Routes)
 server.addRoutes(routes)
 
 // Set a listen port of 8181
-server.serverPort = 8181
+server.serverPort = 8080
 
 // Set a document root.
 // This is optional. If you do not want to serve static content then do not set this.
