@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)http://www.jianshu.com/p/fe5cb17a4481 -->
+<html class=" js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="description" content="Set类型语法Swift中的Set类型被写为Set&amp;lt;T&amp;gt;,这里的T表示Set中允许存储的类型。创建和构造一个空的Set你可以通过构造器语法创建一个特定类型的空集合:varletters=Set&amp;lt;Character&amp;gt;()一个...">
+  <meta property="wb:webmaster" content="294ec9de89e7fadb">
+  <meta property="qc:admins" content="104102651453316562112116375">
+  <meta property="qc:admins" content="11635613706305617">
+  <meta property="qc:admins" content="1163561616621163056375">
+  <meta name="google-site-verification" content="cV4-qkUJZR6gmFeajx_UyPe47GW9vY6cnCrYtCHYNh4">
+  <meta name="google-site-verification" content="HF7lfF8YEGs1qtCE-kPml8Z469e2RHhGajy6JPVy5XI">
+  <meta http-equiv="mobile-agent" content="format=html5; url=http://www.jianshu.com/p/fe5cb17a4481">
+    <!--  Meta for Smart App Banner -->
+  <meta name="apple-itunes-app" content="app-id=888237539, app-argument=jianshu://notes/1713447">
+  <!-- End -->
+
+  <!--  Meta for Twitter Card -->
+  <meta content="summary" property="twitter:card">
+  <meta content="@jianshucom" property="twitter:site">
+  <meta content="swift学习-集合（Set）" property="twitter:title">
+  <meta content="Set类型语法Swift中的Set类型被写为Set&amp;lt;T&amp;gt;,这里的T表示Set中允许存储的类型。创建和构造一个空的Set你可以通过构造器语法创建一个特定类型的空集合:varletters=Set&amp;lt;Character&amp;gt;()一个..." property="twitter:description">
+  <meta content="http://www.jianshu.com/p/fe5cb17a4481" property="twitter:url">
+  <!-- End -->
+
+  <!--  Meta for OpenGraph -->
+  <meta property="fb:app_id" content="865829053512461">
+  <meta property="og:site_name" content="简书">
+  <meta property="og:title" content="swift学习-集合（Set）">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="http://www.jianshu.com/p/fe5cb17a4481">
+  <meta property="og:description" content="Set类型语法Swift中的Set类型被写为Set&amp;lt;T&amp;gt;,这里的T表示Set中允许存储的类型。创建和构造一个空的Set你可以通过构造器语法创建一个特定类型的空集合:varletter...">
+
+    <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/657212-abd80389f5ab2253.png">
+    <meta property="og:image:width" content="1160">
+    <meta property="og:image:height" content="850">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/657212-ab3cc2036284f6cd.png">
+    <meta property="og:image:width" content="1136">
+    <meta property="og:image:height" content="700">
+    <meta property="og:image:type" content="image/png">
+  <!-- End -->
+
+  <!--  Meta for Facebook Applinks -->
+  <meta property="al:ios:url" content="jianshu://notes/1713447">
+  <meta property="al:ios:app_store_id" content="888237539">
+  <meta property="al:ios:app_name" content="简书">
+
+  <meta property="al:android:url" content="jianshu://notes/1713447">
+  <meta property="al:android:package" content="com.jianshu.haruki">
+  <meta property="al:android:app_name" content="简书">
+  <!-- End -->
+
+  <title>swift学习-集合（Set） - 简书</title>
+  <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="lwH3DupCGDx+M7NgDu0t5wGWJJO73+/voddwZ1Qp5sEtCOG85fPZFPwravMd8rZK3+/lKSH2/CeAz8/XYc5u+w==">
+  <!--[if lte IE 8]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <link rel="stylesheet" media="all" href="./swift学习-集合（Set） - 简书_files/base-f935477e8faba16f29c6f9e4f0e1d032.css">
+
+    <link rel="stylesheet" media="all" href="./swift学习-集合（Set） - 简书_files/reading-note-4158a6eeb7c4e4a9fd15332778cfb52c.css">
+  <link rel="stylesheet" media="all" href="./swift学习-集合（Set） - 简书_files/base-read-mode-64acccf6966299cfa3d580140a2582fe.css">
+  <script src="./swift学习-集合（Set） - 简书_files/push.js"></script><script type="text/javascript" async="" src="./swift学习-集合（Set） - 简书_files/ga.js"></script><script src="./swift学习-集合（Set） - 简书_files/hm.js"></script><script src="./swift学习-集合（Set） - 简书_files/modernizr-613ea63b5aa2f0e2a1946e9c28c8eedb.js"></script>
+  <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+  <!--[if IE 8]><link rel="stylesheet" media="all" href="http://cdn-qn0.jianshu.io/assets/scaffolding/for_ie-7f1c477ffedc13c11315103e8787dc6c.css" /><![endif]-->
+  <!--[if lt IE 9]><link rel="stylesheet" media="all" href="http://cdn-qn0.jianshu.io/assets/scaffolding/for_ie-7f1c477ffedc13c11315103e8787dc6c.css" /><![endif]-->
+  <link href="http://baijii-common.b0.upaiyun.com/icons/favicon.ico" rel="icon">
+      <link rel="apple-touch-icon-precomposed" href="http://cdn-qn0.jianshu.io/assets/apple-touch-icons/57-b426758a1fcfb30486f20fd073c3b8ec.png" sizes="57x57">
+      <link rel="apple-touch-icon-precomposed" href="http://cdn-qn0.jianshu.io/assets/apple-touch-icons/72-feca4b183b9d29fd188665785dc7a7f1.png" sizes="72x72">
+      <link rel="apple-touch-icon-precomposed" href="http://cdn-qn0.jianshu.io/assets/apple-touch-icons/76-ba757f1ad3421192ce7192170393d2b0.png" sizes="76x76">
+      <link rel="apple-touch-icon-precomposed" href="./swift学习-集合（Set） - 简书_files/114-8dae53b3bcea3f06bb139e329d1edab3.png" sizes="114x114">
+      <link rel="apple-touch-icon-precomposed" href="http://cdn-qn0.jianshu.io/assets/apple-touch-icons/120-fa315ee0177dba4c55d4f66d4129b47f.png" sizes="120x120">
+      <link rel="apple-touch-icon-precomposed" href="http://cdn-qn0.jianshu.io/assets/apple-touch-icons/152-052f5799bec8fb3aa624bdc72ef5bd1d.png" sizes="152x152">
+  <!-- Baidu stats -->
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0c0e9d9b1e7d617b3e6842e85b9fb068";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+<style type="text/css"></style></head>
+
+<body class="post output zh cn mac reader-day-mode reader-font2" data-js-module="note-show" data-locale="zh-CN">
+  
+  <div class="navbar navbar-jianshu shrink">
+  <div class="dropdown">
+    <a class="dropdown-toggle logo" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="javascript:void(0)">
+      简
+    </a>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+      <li><a href="http://www.jianshu.com/"><i class="fa fa-home"></i> 首页</a></li>
+      <li><a href="http://www.jianshu.com/collections"><i class="fa fa-th"></i> 专题</a></li>
+      <li><a href="http://www.jianshu.com/user_invitations"><i class="fa fa-money"></i> 发钱啦</a></li>
+    </ul>
+  </div>
+</div>
+<div class="navbar-user">
+    <a class="login" data-signup-link="true" data-toggle="modal" href="http://www.jianshu.com/sign_up">
+      <i class="fa fa-user"></i> 注册
+</a>    <a class="login" data-signin-link="true" data-toggle="modal" href="http://www.jianshu.com/sign_in">
+      <i class="fa fa-sign-in"></i> 登录
+</a>    <a class="daytime set-view-mode pull-right" href="javascript:void(0)"><i class="fa fa-moon-o"></i></a>
+</div>
+<div class="navbar navbar-jianshu expanded">
+  <div class="dropdown">
+      <a class="active logo" role="button" data-original-title="个人主页" data-container="div.expanded" href="http://www.jianshu.com/">
+        <b>简</b><i class="fa fa-home"></i><span class="title">首页</span>
+</a>      <a data-toggle="tooltip" data-placement="right" data-original-title="专题" data-container="div.expanded" href="http://www.jianshu.com/collections">
+        <i class="fa fa-th"></i><span class="title">专题</span>
+</a>    <a class="ad-selector" href="http://www.jianshu.com/apps">
+      <i class="fa fa-mobile"></i><span class="title">下载手机应用</span>
+</a>    <div class="ad-container " style="display: none;">
+      <div class="ad-pop">
+        <img class="ad-logo" src="./swift学习-集合（Set） - 简书_files/114-8dae53b3bcea3f06bb139e329d1edab3.png" alt="114">
+        <p class="ad-title">简书</p>
+        <p class="ad-subtitle">交流故事，沟通想法</p>
+        <img class="ad-qrcode" src="./swift学习-集合（Set） - 简书_files/download-app-qrcode-053849fa25f9b44573ef8dd3c118a20f.png" alt="Download app qrcode">
+        <div>
+          <a class="ad-link" href="https://itunes.apple.com/cn/app/jian-shu/id888237539?ls=1&amp;mt=8">iOS</a>·
+          <a class="ad-link" href="http://downloads.jianshu.io/apps/haruki/JianShu-1.11.1.apk">Android</a>
+        </div>
+      </div> 
+    </div>
+  </div>
+  <div class="nav-user">
+      <a href="http://www.jianshu.com/p/fe5cb17a4481#view-mode-modal" data-toggle="modal"><i class="fa fa-font"></i><span class="title">显示模式</span></a>
+
+      <a class="signin" data-signin-link="true" data-toggle="modal" data-placement="right" data-original-title="登录" data-container="div.expanded" href="http://www.jianshu.com/sign_in">
+        <i class="fa fa-sign-in"></i><span class="title">登录</span>
+</a>    </div>
+  </div>
+
+  
+    <div class="fixed-btn">
+    <a class="go-top hide-go-top" href="http://www.jianshu.com/p/fe5cb17a4481#"> <i class="fa fa-angle-up"></i></a>
+    <a class="qrcode" data-target="#bottom-qrcode" data-toggle="modal" href="javascript:void(0)"><i class="fa fa-qrcode"></i></a>
+    <a class="writer" href="http://www.jianshu.com/writer#/" data-toggle="tooltip" data-placement="left" title="" data-original-title="写篇文章"><i class="fa fa-pencil"></i></a>
+    <!-- qrcode modal -->
+    <div id="bottom-qrcode" class="modal panel-modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+      <h4>下载简书移动应用</h4>
+      <div class="panel-body"><img src="./swift学习-集合（Set） - 简书_files/download-app-qrcode-85008f146773a25ce86bcc4d7858af68.png" alt="Download app qrcode"></div>
+    </div>
+  </div>
+
+
+  <div id="show-note-container" class="imagebubble-container imagebubble-mode-off">
+    
+<div class="post-bg" id="flag">
+  <div class="wrap-btn" style="top: -1px;">
+    <!-- Notebook and collections button upper left -->
+      <div class="article-related pull-left">
+          <a data-toggle="tooltip" data-placement="bottom" data-original-title="未加入专题" href="javascript:void(null);">
+            <i class="fa fa-th"></i>
+</a>          <a class="notebooks-menu-btn" data-toggle="modal" data-target="#notebooks-menu" href="javascript:void(null);"><i class="fa fa-list-ul"></i></a>
+        <div class="related-avatar-group activities"></div>
+      </div>
+    <!-- ******* -->
+
+      <a class="login" data-signup-link="true" data-toggle="modal" href="http://www.jianshu.com/sign_up">
+    <i class="fa fa-user"></i> 注册
+</a>  <a class="login" data-signin-link="true" data-toggle="modal" href="http://www.jianshu.com/sign_in">
+    <i class="fa fa-sign-in"></i> 登录
+</a>
+
+    <!-- Buttons upper right -->
+    <!-- ******* -->
+  </div>
+
+  <div class="container">
+    <!-- Article activities for width under 768px -->
+    <div class="related-avatar-group activities"></div>
+      <div class="article">
+        <div class="preview">
+          <div class="author-info">
+              <div class="btn btn-small btn-success follow">
+    <a data-signin-link="true" data-toggle="modal" href="http://www.jianshu.com/sign_in"><i class="fa fa-plus"></i>  <span>添加关注</span></a>
+  </div>
+
+            <a class="avatar" href="http://www.jianshu.com/users/c91deab0f581">
+              <img src="./swift学习-集合（Set） - 简书_files/3-575b6d78d8c89400d30e4ed72c2675bf.jpg" alt="3">
+</a>            <span class="label">
+                作者
+            </span>
+            <a class="author-name blue-link" href="http://www.jianshu.com/users/c91deab0f581">
+              <span>JaneJie</span>
+</a>              <span>2015.08.11 10:45</span>
+            <div>
+              <span>写了19106字</span>，<span>被9人关注</span>，<span>获得了6个喜欢</span>
+            </div>
+          </div>
+          <h1 class="title">swift学习-集合（Set）</h1>
+          <div class="meta-top">
+            <span class="wordage">字数784</span>
+            <span class="views-count">阅读1096</span>
+            <span class="comments-count">评论4</span>
+            <span class="likes-count">喜欢1</span>
+          </div>
+
+          <!-- Collection/Bookmark/Share for width under 768px -->
+          <div class="article-share"><a class="bookmark" data-signin-link="true" data-toggle="modal" href="http://www.jianshu.com/sign_in"> <i class="fa fa-bookmark-o"></i><span>收藏文章</span></a><span> <a href="javascript:void(null)" data-toggle="dropdown"><i class="fa fa-share-square-o"></i> 分享</a> <ul class="dropdown-menu arrow-top"> <li> <a href="javascript:void((function(s,d,e,r,l,p,t,z,c){var%20f=&#39;http://v.t.sina.com.cn/share/share.php?appkey=1881139527&#39;,u=z||d.location,p=[&#39;&amp;url=&#39;,e(u),&#39;&amp;title=&#39;,e(t||d.title),&#39;&amp;source=&#39;,e(r),&#39;&amp;sourceUrl=&#39;,e(l),&#39;&amp;content=&#39;,c||&#39;gb2312&#39;,&#39;&amp;pic=&#39;,e(p||&#39;&#39;)].join(&#39;&#39;);function%20a(){if(!window.open([f,p].join(&#39;&#39;),&#39;mb&#39;,[&#39;toolbar=0,status=0,resizable=1,width=440,height=430,left=&#39;,(s.width-440)/2,&#39;,top=&#39;,(s.height-430)/2].join(&#39;&#39;)))u.href=[f,p].join(&#39;&#39;);};if(/Firefox/.test(navigator.userAgent))setTimeout(a,0);else%20a();})(screen,document,encodeURIComponent,&#39;&#39;,&#39;&#39;,&#39;http://cwb.assets.jianshu.io/notes/images/1713447/weibo/image_1f13f65bce88.jpg&#39;, &#39;推荐 JaneJie 的文章《swift学习-集合（Set）》（ 分享自 @简书 ）&#39;,&#39;http://www.jianshu.com/p/fe5cb17a4481&#39;,&#39;页面编码gb2312|utf-8默认gb2312&#39;));"> <img src="./swift学习-集合（Set） - 简书_files/weibo.png"> </a> </li> <li> <a href="javascript:void(function(){var d=document,e=encodeURIComponent,s1=window.getSelection,s2=d.getSelection,s3=d.selection,s=s1?s1():s2?s2():s3?s3.createRange().text:&#39;&#39;,r=&#39;http://www.douban.com/recommend/?url=&#39;+e(&#39;http://www.jianshu.com/p/fe5cb17a4481&#39;)+&#39;&amp;title=&#39;+e(&#39;swift学习-集合（Set）&#39;)+&#39;&amp;sel=&#39;+e(s)+&#39;&amp;v=1&#39;,x=function(){if(!window.open(r,&#39;douban&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330&#39;))location.href=r+&#39;&amp;r=1&#39;};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})()"> <img src="./swift学习-集合（Set） - 简书_files/douban.png"> </a> </li> <li> <a href="javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;http://share.v.t.qq.com/index.php?c=share&amp;a=index&amp;url=&#39;+e(&#39;http://www.jianshu.com/p/fe5cb17a4481&#39;)+&#39;&amp;title=&#39;+e(&#39;推荐 JaneJie 的文章《swift学习-集合（Set）》（ 分享自 @jianshuio ）&#39;),x=function(){if(!window.open(r,&#39;tweibo&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=600,height=600&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();"> <img src="./swift学习-集合（Set） - 简书_files/tweibo.png"> </a> </li> <li> <a href="javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=&#39;+e(&#39;http://www.jianshu.com/p/fe5cb17a4481&#39;)+&#39;&amp;title=&#39;+e(&#39;推荐 JaneJie 的文章《swift学习-集合（Set）》&#39;),x=function(){if(!window.open(r,&#39;qzone&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=600,height=600&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();"> <img src="./swift学习-集合（Set） - 简书_files/qzone.png"> </a> </li> <li> <a href="javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;https://twitter.com/share?url=&#39;+e(&#39;http://www.jianshu.com/p/fe5cb17a4481&#39;)+&#39;&amp;text=&#39;+e(&#39;推荐 JaneJie 的文章《swift学习-集合（Set）》（ 分享自 @jianshucom ）&#39;)+&#39;&amp;related=&#39;+e(&#39;jianshucom&#39;),x=function(){if(!window.open(r,&#39;twitter&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=600,height=600&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();"> <img src="./swift学习-集合（Set） - 简书_files/twitter.png"> </a> </li> <li> <a href="javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;https://www.facebook.com/dialog/share?app_id=483126645039390&amp;display=popup&amp;href=http://www.jianshu.com/p/fe5cb17a4481&#39;,x=function(){if(!window.open(r,&#39;facebook&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();"> <img src="./swift学习-集合（Set） - 简书_files/facebook.png"> </a> </li> <li> <a href="javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;https://plus.google.com/share?url=&#39;+e(&#39;http://www.jianshu.com/p/fe5cb17a4481&#39;),x=function(){if(!window.open(r,&#39;google_plus&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();"> <img src="./swift学习-集合（Set） - 简书_files/google_plus.png"> </a> </li> <li> <a href="http://www.jianshu.com/p/fe5cb17a4481"> <img src="./swift学习-集合（Set） - 简书_files/renren.png"> </a> </li> </ul></span></div>
+          <!-- -->
+
+          <div class="show-content"><h2>Set类型语法</h2>
+<p>  Swift中的Set类型被写为Set&lt;T&gt;,这里的T表示Set中允许存储的类型。</p>
+<h2>创建和构造一个空的Set</h2>
+<ul>
+<li>你可以通过构造器语法创建一个特定类型的空集合:<pre class="hljs sql"><code class="sql">var letters = <span class="hljs-operator"><span class="hljs-keyword">Set</span>&lt;<span class="hljs-built_in">Character</span>&gt;()</span></code></pre>
+</li>
+<li>一个空的数组字面量创建一个空的Set:<pre class="hljs sql"><code class="sql">var letters = <span class="hljs-operator"><span class="hljs-keyword">Set</span>&lt;<span class="hljs-built_in">Character</span>&gt;()
+leters.<span class="hljs-keyword">insert</span>(<span class="hljs-string">"a"</span>)
+letters = []</span></code></pre>
+</li>
+<li>用数组字面量创建集合<pre class="hljs javascript"><code class="javascript"><span class="hljs-keyword">var</span> favoriteGenres: <span class="hljs-built_in">Set</span>&lt;<span class="hljs-built_in">String</span>&gt; = [<span class="hljs-string">"Rock"</span>,<span class="hljs-string">"Classical"</span>,Hip hop<span class="hljs-string">""</span>]</code></pre>
+这里将favoriteGenres显示声明为Set&lt;String&gt;,如果不这么做，favoriteGenres会被推断为Array&lt;String&gt;类型.</li>
+</ul>
+<h2>访问和修改一个Set</h2>
+<ul>
+<li>
+<p>为了找出一个Set中元素的数量,可以使用其只读属性count:</p>
+</li>
+<li>
+<p>使用布尔属性isEmpty 作为一个缩写形势去检查count属性是否为0</p>
+</li>
+<li>
+<p>你可以通过调用Set的insert(_:)方法来添加一个新元素</p>
+</li>
+<li>用Set的remove(_:)方法去删除一个元素，也可以通过removeAll()方法删除所有元素</li>
+<li>使用contains(_:)方法去检查Set中是否包含一个特定的值</li>
+<li>Set和Array不同的是，Set是无序的，可以通过调用sort()方法来进行排序。</li>
+</ul>
+<h2>基本集合操作</h2>
+<div class="image-package imagebubble" widget="ImageBubble">
+<img src="./swift学习-集合（Set） - 简书_files/657212-abd80389f5ab2253.png" data-original-src="http://upload-images.jianshu.io/upload_images/657212-abd80389f5ab2253.png" class="imagebubble-image"><br><div class="image-caption"></div>
+</div>
+<ul>
+<li>使用intersect（_:）方法根据两个集合中都包含的值创建的一个新的集合。</li>
+<li>使用exclusiveOr(_:)方法很据只在一个集合中但不在两个集合中的值创建一个新的集合。</li>
+<li>使用union(_:)方法根据两个集合的值创建一个新的集合。</li>
+<li>使用subtract(_:)方法根据不在该集合中的值创建一个新的集合。<pre class="hljs cpp"><code class="cpp">let oddDigits: Set = [<span class="hljs-number">1</span>,<span class="hljs-number">3</span>,<span class="hljs-number">5</span>,<span class="hljs-number">7</span>,<span class="hljs-number">9</span>]
+let ecenDigits: Set = [<span class="hljs-number">0</span>,<span class="hljs-number">2</span>,<span class="hljs-number">4</span>,<span class="hljs-number">6</span>,<span class="hljs-number">8</span>]
+let singleDigitPrimeNumbers : Set = [<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">5</span>,<span class="hljs-number">7</span>]
+oddDigits.<span class="hljs-keyword">union</span>(ecenDigits).sort()
+<span class="hljs-comment">//[0,1,2,3,4,5,6,7,8,9]</span>
+oddDigits.intersect(ecenDigits).sort
+<span class="hljs-comment">//[]</span>
+oddDigits.subtract(singleDigitPrimeNumbers).sort()
+<span class="hljs-comment">//[1,9]</span>
+oddDigits.exclusiveOr(singleDigitPrimeNumbers).sort()
+<span class="hljs-comment">//[1,2,9]</span></code></pre>
+</li>
+</ul>
+<h2>集合成员关系和相等</h2>
+<p>下面的插图描述了三个集合a,b和c，以及通过悬浮区域表述集合间共享的元素。Set a是Set b的父集合，因为 a 包含了 b中所有元素，相反的，Set b 是 a 的子集合，因为属于b的元素也被a 包含。Set b 和Set c 彼此不关联，因为他们之间没有共同的元素。</p>
+<div class="image-package imagebubble" widget="ImageBubble">
+<img src="./swift学习-集合（Set） - 简书_files/657212-ab3cc2036284f6cd.png" data-original-src="http://upload-images.jianshu.io/upload_images/657212-ab3cc2036284f6cd.png" class="imagebubble-image"><br><div class="image-caption"></div>
+</div>
+<ul>
+<li>使用“是否等”运算符（==）来判断两个集合是否包含全部相同的值。</li>
+<li>使用isSubsetOf(_:)方法来判断一个集合中的值是否也被包含在另外一个集合中。</li>
+<li>使用isSupersetOf(_:)方法来判断一个集合中包含的值是否含有另一个集合中所有的值。</li>
+<li>使用 isStrictSubsetOf(<em>:)或者isStrictSupersetOf(</em>:)方法来判断一个集合是否是另外一个集合的子集合或者父集合并且和特定集合不相等。</li>
+<li>使用isDisjointWith(_:)方法来判断两个集合是否不含有相同的值。<pre class="hljs javascript"><code class="javascript"><span class="hljs-keyword">let</span> houseAnimals : <span class="hljs-built_in">Set</span> = [<span class="hljs-string">"?"</span>,<span class="hljs-string">"?"</span>]
+<span class="hljs-keyword">let</span> farmAnimals: <span class="hljs-built_in">Set</span> = [<span class="hljs-string">"?"</span>,<span class="hljs-string">"?"</span>,<span class="hljs-string">"?"</span>,<span class="hljs-string">"?"</span>,<span class="hljs-string">"?"</span>]
+<span class="hljs-keyword">let</span> cityAnimals: <span class="hljs-built_in">Set</span> = [<span class="hljs-string">"?"</span>,<span class="hljs-string">"?"</span>]
+houseAnimals. isSubsetOf(farmAnimals)
+<span class="hljs-comment">//true</span>
+farmAnimals. isSupersetOf(houseAnimals)
+<span class="hljs-comment">//true</span>
+farmAnimals. isDisjointWith(cityAnimals)
+<span class="hljs-comment">//true</span></code></pre>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+
+      <div class="visitor_edit">
+        <!-- further readings -->
+        <div id="further-readings" data-user-slug="" data-user-nickname="">
+          <div id="further-reading-line" class="hide further-reading-line"></div>
+          <ul id="further-readings-list" class="reading-list unstyled"></ul>
+          <div id="further-reading-new" class="reading-edit">
+              <a data-signin-link="true" data-toggle="modal" href="http://www.jianshu.com/sign_in">
+                <i class="fa fa-plus-circle"></i> 推荐拓展阅读
+</a>            <div id="further-reading-form"></div>
+          </div>
+        </div>
+        <div class="pull-right">
+          <!-- copyright -->
+          <div class="author-copyright pull-right" data-toggle="tooltip" data-html="true" title="" data-original-title="转载请联系作者获得授权，并标注“简书作者”。">
+            <a><i class="fa fa-copyright"></i> 著作权归作者所有</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reward / Support Author -->
+        <div class="support-author">
+          <p>如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作！</p>
+            <a class="btn btn-pay" data-toggle="modal" href="http://www.jianshu.com/p/fe5cb17a4481#pay-modal">¥ 打赏支持</a>
+          <div class="avatar-list"></div>
+        </div>
+
+      <!-- article meta bottom -->
+      <div class="meta-bottom clearfix">
+        <!--  Like Button -->
+        <div class="like ">
+            <div class="like-button">
+              <a id="like-note" class="like-content" data-signin-link="true" data-toggle="modal" href="http://www.jianshu.com/sign_in">
+                <i class="fa fa-heart-o"></i>  喜欢
+</a></div>          <span id="likes-count" data-toggle="tooltip" data-placement="right" title="" data-original-title="查看所有喜欢的用户">1</span>        </div>
+        <!--  share group -->
+        <div class="share-group pull-right">
+          <a href="javascript:void((function(s,d,e,r,l,p,t,z,c){var%20f=&#39;http://v.t.sina.com.cn/share/share.php?appkey=1881139527&#39;,u=z||d.location,p=[&#39;&amp;url=&#39;,e(u),&#39;&amp;title=&#39;,e(t||d.title),&#39;&amp;source=&#39;,e(r),&#39;&amp;sourceUrl=&#39;,e(l),&#39;&amp;content=&#39;,c||&#39;gb2312&#39;,&#39;&amp;pic=&#39;,e(p||&#39;&#39;)].join(&#39;&#39;);function%20a(){if(!window.open([f,p].join(&#39;&#39;),&#39;mb&#39;,[&#39;toolbar=0,status=0,resizable=1,width=440,height=430,left=&#39;,(s.width-440)/2,&#39;,top=&#39;,(s.height-430)/2].join(&#39;&#39;)))u.href=[f,p].join(&#39;&#39;);};if(/Firefox/.test(navigator.userAgent))setTimeout(a,0);else%20a();})(screen,document,encodeURIComponent,&#39;&#39;,&#39;&#39;,&#39;http://cwb.assets.jianshu.io/notes/images/1713447/weibo/image_1f13f65bce88.jpg&#39;, &#39;推荐 JaneJie 的文章《swift学习-集合（Set）》（ 分享自 @简书 ）&#39;,&#39;http://www.jianshu.com/p/fe5cb17a4481&#39;,&#39;页面编码gb2312|utf-8默认gb2312&#39;));" data-name="weibo">
+            <i class="fa fa-weibo"></i><span>分享到微博</span>
+          </a>
+          <a data-toggle="modal" href="http://www.jianshu.com/p/fe5cb17a4481#share-weixin-modal" data-name="weixin">
+            <i class="fa fa-weixin"></i><span>分享到微信</span>
+          </a>
+          <div class="more">
+            <a href="javascript:void(0)" data-toggle="dropdown">更多分享<i class="fa fa-caret-down"></i></a>
+            <ul class="dropdown-menu arrow-top">
+                <li><a href="http://cwb.assets.jianshu.io/notes/images/1713447/weibo/image_1f13f65bce88.jpg" target="_blank" data-name="changweibo"><i class="fa fa-arrow-circle-o-down"></i> 下载长微博图片</a></li>
+                <li>
+                  <a data-name="tweibo" href="javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;http://share.v.t.qq.com/index.php?c=share&amp;a=index&amp;url=&#39;+e(&#39;http://www.jianshu.com/p/fe5cb17a4481&#39;)+&#39;&amp;title=&#39;+e(&#39;推荐 JaneJie 的文章《swift学习-集合（Set）》（ 分享自 @jianshuio ）&#39;),x=function(){if(!window.open(r,&#39;tweibo&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=600,height=600&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();">
+                    <img src="./swift学习-集合（Set） - 简书_files/tweibo.png" alt="Tweibo"> 分享到腾讯微博
+</a>                </li>
+                <li>
+                  <a data-name="qzone" href="javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=&#39;+e(&#39;http://www.jianshu.com/p/fe5cb17a4481&#39;)+&#39;&amp;title=&#39;+e(&#39;推荐 JaneJie 的文章《swift学习-集合（Set）》&#39;),x=function(){if(!window.open(r,&#39;qzone&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=600,height=600&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();">
+                    <img src="./swift学习-集合（Set） - 简书_files/qzone.png" alt="Qzone"> 分享到QQ空间
+</a>                </li>
+                <li>
+                  <a data-name="twitter" href="javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;https://twitter.com/share?url=&#39;+e(&#39;http://www.jianshu.com/p/fe5cb17a4481&#39;)+&#39;&amp;text=&#39;+e(&#39;推荐 JaneJie 的文章《swift学习-集合（Set）》（ 分享自 @jianshucom ）&#39;)+&#39;&amp;related=&#39;+e(&#39;jianshucom&#39;),x=function(){if(!window.open(r,&#39;twitter&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=600,height=600&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();">
+                    <img src="./swift学习-集合（Set） - 简书_files/twitter.png" alt="Twitter"> 分享到Twitter
+</a>                </li>
+                <li>
+                  <a data-name="facebook" href="javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;https://www.facebook.com/dialog/share?app_id=483126645039390&amp;display=popup&amp;href=http://www.jianshu.com/p/fe5cb17a4481&#39;,x=function(){if(!window.open(r,&#39;facebook&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();">
+                    <img src="./swift学习-集合（Set） - 简书_files/facebook.png" alt="Facebook"> 分享到Facebook
+</a>                </li>
+                <li>
+                  <a data-name="google_plus" href="javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;https://plus.google.com/share?url=&#39;+e(&#39;http://www.jianshu.com/p/fe5cb17a4481&#39;),x=function(){if(!window.open(r,&#39;google_plus&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();">
+                    <img src="./swift学习-集合（Set） - 简书_files/google_plus.png" alt="Google plus"> 分享到Google+
+</a>                </li>
+                <li>
+                  <a data-name="douban" href="javascript:void(function(){var d=document,e=encodeURIComponent,s1=window.getSelection,s2=d.getSelection,s3=d.selection,s=s1?s1():s2?s2():s3?s3.createRange().text:&#39;&#39;,r=&#39;http://www.douban.com/recommend/?url=&#39;+e(&#39;http://www.jianshu.com/p/fe5cb17a4481&#39;)+&#39;&amp;title=&#39;+e(&#39;swift学习-集合（Set）&#39;)+&#39;&amp;sel=&#39;+e(s)+&#39;&amp;v=1&#39;,x=function(){if(!window.open(r,&#39;douban&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330&#39;))location.href=r+&#39;&amp;r=1&#39;};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})()">
+                    <img src="./swift学习-集合（Set） - 简书_files/douban.png" alt="Douban"> 分享到豆瓣
+</a>                </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modals -->
+      <div id="share-weixin-modal" class="modal hide fade share-weixin-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+  </div>
+  <div class="modal-body" title="http://www.jianshu.com/p/fe5cb17a4481?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=weixin">
+    <h5>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</h5>
+  <canvas width="170" height="170" style="display: none;"></canvas><img src="data:image/png;base64,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" style="display: block;"></div>
+</div>
+
+      
+      <div id="notebooks-menu" class="panel notebooks-menu arrow-top modal hide fade"><img class="loader-tiny" src="./swift学习-集合（Set） - 简书_files/tiny.gif" alt="Tiny"></div>
+      <div id="collection-menu" class="panel collection-menu arrow-top modal hide fade"><img class="loader-tiny" src="./swift学习-集合（Set） - 简书_files/tiny.gif" alt="Tiny"></div>
+      
+      <div id="likes-modal" class="modal modal_new support_list-modal fullscreen hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3>喜欢的用户</h3>
+      </div>
+      <div class="modal-body">
+        <ul class="unstyled users">
+        <li data-user-id="1121018"> <a class="avatar" href="http://www.jianshu.com/users/16e216b5a59e"> <img src="./swift学习-集合（Set） - 简书_files/3ee06f84c7b9.jpeg"> </a> <a class="blue-link" href="http://www.jianshu.com/users/16e216b5a59e">LittleHH</a> <span class="time">2016.03.22 08:24</span></li></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    <!-- Comments -->
+    <div id="comments" class="comment-list clearfix">
+        <div class="comment-head clearfix">
+          4条评论
+          <span class="order">
+            （
+            <a data-order="asc" class="active" href="javascript:void(0)">按时间正序</a>·
+            <a data-order="desc" href="javascript:void(0)">按时间倒序</a>·
+            <a data-order="likes_count" href="javascript:void(0)">按喜欢排序</a>
+            ）
+          </span>
+            <a class="goto-comment pull-right" data-signin-link="true" data-toggle="modal" href="http://www.jianshu.com/sign_in">
+              <i class="fa fa-pencil"></i>添加新评论
+</a>        </div>
+        <div id="comment-list"><script type="application/json" data-name="comments-info">
+  {"comments":[{"id":1156646,"children_count":2,"likes_count":0},{"id":2199216,"children_count":0,"likes_count":0}]}
+</script>
+
+
+<div class="note-comment clearfix" id="comment-1156646">
+  <div class="content">
+      <div class="meta-top">
+        <a class="avatar" href="http://www.jianshu.com/users/8ecf17b80279">
+          <img src="./swift学习-集合（Set） - 简书_files/d0385b4d6a7f.jpg" alt="100">
+</a>        <p>
+          <a class="author-name" href="http://www.jianshu.com/users/8ecf17b80279">大象飞</a>
+        </p>
+        <span class="reply-time">
+          <small>2 楼 · </small>
+          <a href="http://www.jianshu.com/p/fe5cb17a4481/comments/1156646#comment-1156646">2016.01.04 11:37</a></span>
+      </div>
+      <p>如何获得Set中所有元素</p>
+      <div class="comment-footer clearfix text-right">
+        <a data-id="1156646" class="like pull-left" href="javascript:void(0)">
+          <i class="fa fa-heart-o"></i>喜欢<span>(0)</span>
+</a>        
+
+        <a data-id="1156646" data-nickname="大象飞" class="reply" href="javascript:void(0)">回复</a>
+        
+        
+      </div>
+    <div class="child-comment-list ">
+        <div class="child-comment" id="comment-2619486" data-id="2619486">
+    <p>
+      <a class="blue-link" href="http://www.jianshu.com/users/80696797e810">Kyrin</a>：
+      <a href="http://www.jianshu.com/users/8ecf17b80279" class="maleskine-author" target="_blank" data-user-slug="8ecf17b80279">@大象飞</a> <br>遍历一遍就OK了。。。<br>var setList4:Set = [11,19,3,21,20]<br>for item in setList4.sort(){<br>    print(item)<br>}<br>
+    </p>
+    <div class="child-comment-footer text-right clearfix">
+      
+      <a data-id="1156646" data-nickname="Kyrin" class="reply" href="javascript:void(null)">回复</a>
+      
+      
+      <span class="reply-time pull-left">
+        <a href="http://www.jianshu.com/p/fe5cb17a4481/comments/2619486#comment-2619486">2016.06.02 22:36</a></span>
+      
+    </div>
+  </div>
+  <div class="child-comment" id="comment-2623606" data-id="2623606">
+    <p>
+      <a class="blue-link" href="http://www.jianshu.com/users/8ecf17b80279">大象飞</a>：
+      <a href="http://www.jianshu.com/users/80696797e810" class="maleskine-author" target="_blank" data-user-slug="80696797e810">@Kyrin</a> 谢谢  <img src="./swift学习-集合（Set） - 简书_files/pray.png" alt=":pray:" title=":pray:" class="emoji" width="20" height="20"> 
+    </p>
+    <div class="child-comment-footer text-right clearfix">
+      
+      <a data-id="1156646" data-nickname="大象飞" class="reply" href="javascript:void(null)">回复</a>
+      
+      
+      <span class="reply-time pull-left">
+        <a href="http://www.jianshu.com/p/fe5cb17a4481/comments/2623606#comment-2623606">2016.06.03 10:28</a></span>
+      
+    </div>
+  </div>
+
+      <div data-state="remaining-child-comments"></div>
+        <div class="comment-toolbar clearfix">
+          <span class="pull-right">
+            <a data-id="1156646" class="reply" href="javascript:void(null)"><i class="fa fa-pencil"></i> 添加新回复</a>
+          </span>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="note-comment clearfix" id="comment-2199216">
+  <div class="content">
+      <div class="meta-top">
+        <a class="avatar" href="http://www.jianshu.com/users/5007b4224c0f">
+          <img src="./swift学习-集合（Set） - 简书_files/14-75d944a989bbbd5b92a639698c9b4a3c.jpg" alt="14">
+</a>        <p>
+          <a class="author-name" href="http://www.jianshu.com/users/5007b4224c0f">avi9111</a>
+        </p>
+        <span class="reply-time">
+          <small>3 楼 · </small>
+          <a href="http://www.jianshu.com/p/fe5cb17a4481/comments/2199216#comment-2199216">2016.04.28 17:25</a></span>
+      </div>
+      <p>哎呦，不错哦</p>
+      <div class="comment-footer clearfix text-right">
+        <a data-id="2199216" class="like pull-left" href="javascript:void(0)">
+          <i class="fa fa-heart-o"></i>喜欢<span>(0)</span>
+</a>        
+
+        <a data-id="2199216" data-nickname="avi9111" class="reply" href="javascript:void(0)">回复</a>
+        
+        
+      </div>
+    <div class="child-comment-list hide">
+      
+      <div data-state="remaining-child-comments"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+          <p class="signout-comment">
+    <a class="btn btn-info" data-signin-link="true" data-toggle="modal" href="http://www.jianshu.com/sign_in">
+      登录后发表评论
+</a>  </p>
+
+    </div>
+    <!-- -->
+
+  </div>
+
+  <script type="application/json" data-name="note">
+    {"id":1713447,"abbr":"Set类型语法Swift中的Set类型被写为Set&lt;T&gt;,这里的T表示Set中允许存储的类型。创建和构造一个空的Set你可以通过构造器语法创建一个特定类型的空集合:varletters=Set&lt;Character&gt;()一个...","slug":"fe5cb17a4481","url":"http://www.jianshu.com/p/fe5cb17a4481","image_url":"http://cwb.assets.jianshu.io/notes/images/1713447/weibo/image_1f13f65bce88.jpg","wordage":784,"has_further_readings":false,"views_count":1096,"likes_count":1,"comments_count":4,"rewards_total_count":0}
+  </script>
+
+  <script type="application/json" data-name="uuid">
+    {"uuid":"158e0840-3546-4d82-a59d-445a524480ef"}
+  </script>
+
+  <script type="application/json" data-name="author">
+    {"id":657212,"nickname":"JaneJie","slug":"c91deab0f581","public_notes_count":16,"followers_count":9,"total_likes_count":6,"is_current_user":false,"is_signed_author":false}
+  </script>
+
+
+
+  <!-- Modal -->
+    <div class="modal pay-modal text-center hide fade" id="pay-modal">
+  <div class="modal-header clearfix">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+  </div>
+  <form id="new_reward" class="new_reward" target="_blank" action="http://www.jianshu.com/notes/1713447/rewards" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="lwH3DupCGDx+M7NgDu0t5wGWJJO73+/voddwZ1Qp5sEtCOG85fPZFPwravMd8rZK3+/lKSH2/CeAz8/XYc5u+w==">
+    <div class="modal-body">
+      <a href="http://www.jianshu.com/users/c91deab0f581">
+        <div class="avatar"><img src="./swift学习-集合（Set） - 简书_files/3-575b6d78d8c89400d30e4ed72c2675bf.jpg" alt="3"></div>
+</a>      <p><i class="fa fa-quote-left pull-left"></i>如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作！<i class="fa fa-quote-right pull-right"></i></p>
+      <div class="main-inputs text-left">
+        <div class="control-group">
+          <label for="reward_amount">打赏金额</label><i class="fa fa-yen"></i>
+          <input value="2.00" type="text" name="reward[amount_in_yuan]" id="reward_amount_in_yuan">
+        </div>
+        <div class="control-group message">
+          <textarea placeholder="给Ta留言" name="reward[message]" id="reward_message"></textarea>
+        </div>
+      </div>
+      <div class="choose-pay text-left">
+        <h5>选择支付方式：</h5>
+        <div>
+          <label for="reward_channel_alipay">
+            <div class="iradio_minimal checked" style="position: relative;"><input type="radio" value="alipay" checked="checked" name="reward[channel]" id="reward_channel_alipay" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div>
+            <span class="alipay-bg"></span>
+</label>
+          
+          <label for="reward_channel_wx_pub_qr">
+            <div class="iradio_minimal" style="position: relative;"><input type="radio" value="wx_pub_qr" name="reward[channel]" id="reward_channel_wx_pub_qr" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div>
+            微信支付
+</label>        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button name="button" type="submit" class="btn btn-large btn-pay">立即支付</button>
+    </div>
+</form></div>
+
+    <div class="modal success-pay text-center hide fade" id="success-pay">
+  <div class="modal-header clearfix">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+  </div>
+  <div class="modal-body">
+    <h3><i class="icon-ok"></i>打赏成功</h3>
+    <img src="./swift学习-集合（Set） - 简书_files/complete-pay-25426877089eb23bd76d9d0e6aad89c1.png" alt="Complete pay">
+  </div>
+  <div class="modal-footer">
+    
+  </div>
+</div>
+
+</div>
+
+  <div class="imagebubble-backmask image-package" style="z-index: 1000;"><img class="imagebubble-ghost" src="./swift学习-集合（Set） - 简书_files/657212-abd80389f5ab2253(1).png" style="top: 1170px; left: 321px; width: 620px; height: 454px;"><img class="imagebubble-ghost" src="./swift学习-集合（Set） - 简书_files/657212-ab3cc2036284f6cd(1).png" style="top: 2204px; left: 321px; width: 620px; height: 382px;"></div></div>
+  <div id="flash" class="hide"></div>
+  
+  <div id="view-mode-modal" tabindex="-1" class="modal hide read-modal" aria-hidden="false" data-js-module="view-mode-modal">
+    <div class="btn-group change-background" data-toggle="buttons-radio">
+      <a class="btn btn-daytime active" data-mode="day" href="javascript:void(null);">
+        <i class="fa fa-sun-o"></i>
+</a>      <a class="btn btn-nighttime " data-mode="night" href="javascript:void(null);">
+        <i class="fa fa-moon-o"></i>
+</a>    </div>
+    <div class="btn-group change-font" data-toggle="buttons-radio">
+      <a class="btn font " data-font="font1" href="javascript:void(null);">宋体</a>
+      <a class="btn font hei active" data-font="font2" href="javascript:void(null);">黑体</a>
+    </div>
+    <div class="btn-group change-locale" data-toggle="buttons-radio">
+      <a class="btn font active" data-locale="zh-CN" href="javascript:void(null);">简</a>
+      <a class="btn font hei " data-locale="zh-TW" href="javascript:void(null);">繁</a>
+    </div>
+  </div>
+
+  
+
+  <script src="./swift学习-集合（Set） - 简书_files/base-d3f9a709e5a4537b87b3eff40e94a46e.js"></script>
+  
+  <script src="./swift学习-集合（Set） - 简书_files/reading-base-9132a81390eb5b2cc4f21734b0e9cd08.js"></script>
+  <script src="./swift学习-集合（Set） - 简书_files/note_show-12e94137c3593b4c6278c57fead5ad33.js"></script>
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-35169517-1']);
+  _gaq.push(['_setCustomVar', 2, 'User Type', 'Visitor', 1 ]);
+  _gaq.push(['_trackPageview']);
+
+  
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    bp.src = '//push.zhanzhang.baidu.com/push.js';
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+</body></html>
