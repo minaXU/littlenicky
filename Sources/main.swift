@@ -28,11 +28,12 @@ let server = HTTPServer()
 var routes = Routes()
 
 routes.add(method: .get, uri: "/peng") { (request, response) in
-    do {
-        try response.setBody(json: ["peng" : "beauty" , "xu" : "handsome"])
-    }catch{
-        print("you are so kid")
-    }
+//    do {
+//        try response.setBody(json: ["peng" : "beauty" , "xu" : "handsome"])
+//    }catch{
+//        print("you are so kid")
+//    }
+    response.setBody(string: "月月你是最棒的，你要开心，我爱你")
     response.completed()
 }
 
